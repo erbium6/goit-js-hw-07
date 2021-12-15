@@ -5,10 +5,6 @@ console.log(galleryItems);
 
 const galleryRefs = document.querySelector(".gallery");
 
-
-// const modal = document.querySelector(".js-lightbox");
-// const modalImg = document.querySelector(".lightbox__image");
-
 const fullGallery = galleryItems
   .map(
     ({ preview, original, description }) =>
@@ -26,7 +22,7 @@ const fullGallery = galleryItems
     .join("");
   
 galleryRefs.insertAdjacentHTML("beforeend", fullGallery);
-// galleryRefs.addEventListener("click");
+galleryRefs.addEventListener("click", createModal);
 
 function createModal(evt) {
     evt.preventDefault();
@@ -40,13 +36,6 @@ function createModal(evt) {
 
     modal.show();
     
-    document.addEventListener('keydown', closeModal);
-    function closeModal(evt) { 
-        if (evt.code === "Escape") {
-            document.querySelector('.gallery__image').style.display = 'none';
-        }
-        modal.close();
-    }
     
 }
 
